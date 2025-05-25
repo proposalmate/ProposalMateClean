@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscription - ProposalMate Dashboard</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/dashboard.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1>ProposalMate</h1>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="/dashboard"><i class="fas fa-home"></i> Dashboard</a></li>
+                    <li><a href="/dashboard/proposals"><i class="fas fa-file-alt"></i> Proposals</a></li>
+                    <li class="active"><a href="/dashboard/subscription"><i class="fas fa-credit-card"></i> Subscription</a></li>
+                    <li><a href="/dashboard/profile"><i class="fas fa-user"></i> Profile</a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="/api/v1/auth/logout" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </aside>
+        
+        <main class="main-content">
+            <header class="content-header">
+                <div class="user-welcome">
+                    <h2>Subscription Management</h2>
+                    <p>Manage your ProposalMate subscription</p>
+                </div>
+            </header>
+            
+            <div class="subscription-container">
+                <div class="subscription-overview">
+                    <div class="subscription-card">
+                        <div class="subscription-header">
+                            <h3>Current Plan</h3>
+                            <span class="subscription-badge" id="subscription-status">Active</span>
+                        </div>
+                        <div class="subscription-details">
+                            <div class="subscription-info">
+                                <p><strong>Plan:</strong> ProposalMate Standard</p>
+                                <p><strong>Price:</strong> £7/month</p>
+                                <p><strong>Billing Cycle:</strong> Monthly</p>
+                                <p><strong>Next Billing Date:</strong> <span id="next-billing-date">Loading...</span></p>
+                                <p><strong>Trial End Date:</strong> <span id="trial-end-date">Loading...</span></p>
+                            </div>
+                            <div class="subscription-features">
+                                <h4>Features Included:</h4>
+                                <ul>
+                                    <li><i class="fas fa-check"></i> Unlimited Proposals</li>
+                                    <li><i class="fas fa-check"></i> PDF & DOCX Export</li>
+                                    <li><i class="fas fa-check"></i> Custom Branding</li>
+                                    <li><i class="fas fa-check"></i> Client Management</li>
+                                    <li><i class="fas fa-check"></i> Email Support</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="subscription-actions" id="subscription-actions">
+                            <!-- Actions will be dynamically inserted based on subscription status -->
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="payment-method-section">
+                    <h3>Payment Method</h3>
+                    <div class="payment-method-card" id="payment-method-card">
+                        <!-- Payment method details will be loaded here -->
+                        <div class="payment-method-placeholder">
+                            <p>Loading payment information...</p>
+                        </div>
+                    </div>
+                    <button id="update-payment-method" class="btn btn-secondary">Update Payment Method</button>
+                </div>
+                
+                <div class="billing-history-section">
+                    <h3>Billing History</h3>
+                    <div class="billing-history-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Description</th>
+                                    <th>Amount</th>
+                                    <th>Status</th>
+                                    <th>Invoice</th>
+                                </tr>
+                            </thead>
+                            <tbody id="billing-history">
+                                <!-- Billing history will be loaded here -->
+                                <tr>
+                                    <td colspan="5" class="empty-table-message">Loading billing history...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Payment Method Update Modal -->
+            <div class="modal" id="payment-modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>Update Payment Method</h3>
+                        <button class="close-modal"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="payment-form-container">
+                            <form id="payment-form">
+                                <div id="card-element">
+                                    <!-- Stripe Card Element will be inserted here -->
+                                </div>
+                                <div id="card-errors" role="alert"></div>
+                                <button type="submit" class="btn btn-primary">Update Payment Method</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Subscription Cancellation Confirmation Modal -->
+            <div class="modal" id="cancel-modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>Cancel Subscription</h3>
+                        <button class="close-modal"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Are you sure you want to cancel your subscription?</p>
+                        <p>Your subscription will remain active until the end of the current billing period.</p>
+                        <div class="modal-actions">
+                            <button class="btn btn-secondary close-modal">No, Keep My Subscription</button>
+                            <button id="confirm-cancel" class="btn btn-danger">Yes, Cancel Subscription</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="/js/subscription.js"></script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ProposalMate Wedding Dashboard</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Segoe+UI:wght@300;400;500;700&family=Helvetica+Neue:wght@300;400;500;700&display=swap">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/wedding-theme.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="wedding-theme">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo">ProposalMate<span class="logo-accent">Wedding</span></div>
+        <div class="nav-links">
+          <a href="../index.html">Home</a>
+          <a href="templates.html">Templates</a>
+          <a href="account.html">Account</a>
+          <a href="#" id="logout-btn" class="ghost-btn">Logout</a>
+        </div>
+        <div class="mobile-menu-toggle">
+          <i class="fas fa-bars"></i>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content" class="dashboard">
+    <aside class="sidebar">
+      <h2>Welcome <span id="user-name">User</span></h2>
+      <ul class="sidebar-menu">
+        <li><a href="#" class="dashboard-link active">Dashboard</a></li>
+        <li><a href="create.html" class="dashboard-link">Create New Proposal</a></li>
+        <li><a href="#" class="dashboard-link">My Proposals</a></li>
+        <li><a href="#" class="dashboard-link">Clients</a></li>
+        <li><a href="account.html" class="dashboard-link">Account Settings</a></li>
+        <li><a href="#" class="dashboard-link">Subscription</a></li>
+        <li><a href="#" id="sidebar-logout-btn" class="dashboard-link">Logout</a></li>
+      </ul>
+    </aside>
+
+    <section class="dashboard-main">
+      <div class="dashboard-header">
+        <h1>Your Dashboard</h1>
+        <a href="create.html" class="elevated-btn">Create New Proposal</a>
+      </div>
+      
+      <div class="dashboard-stats">
+        <div class="stat-card">
+          <h3>Total Proposals</h3>
+          <p class="stat-number stat-totalProposals">0</p>
+          <p class="stat-label">All proposals</p>
+        </div>
+        <div class="stat-card">
+          <h3>Sent</h3>
+          <p class="stat-number stat-sentProposals">0</p>
+          <p class="stat-label">Awaiting response</p>
+        </div>
+        <div class="stat-card">
+          <h3>Viewed</h3>
+          <p class="stat-number stat-viewedProposals">0</p>
+          <p class="stat-label">Client has opened</p>
+        </div>
+        <div class="stat-card">
+          <h3>Accepted</h3>
+          <p class="stat-number stat-acceptedProposals">0</p>
+          <p class="stat-label">Ready to proceed</p>
+        </div>
+      </div>
+
+      <div id="proposal-status-chart" class="chart-container"></div>
+
+      <div class="recent-proposals">
+        <div class="section-header">
+          <h2>Recent Proposals</h2>
+          <a href="#" class="ghost-btn">View All</a>
+        </div>
+        
+        <div id="proposals-list" class="proposal-list">
+          <!-- Proposals will be dynamically injected here -->
+          <div class="loading-indicator">
+            <i class="fas fa-spinner fa-spin"></i>
+            <p>Loading your proposals...</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Using the consolidated dashboard.js script with the correct path -->
+  <script src="../js/dashboard.js"></script>
+</body>
+</html>

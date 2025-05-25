@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account & Subscription - ProposalMate Wedding</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/wedding-theme.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="wedding-theme">
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">ProposalMate<span class="logo-accent">Wedding</span></div>
+                <div class="nav-links">
+                    <a href="../index.html">Home</a>
+                    <a href="dashboard.html">Dashboard</a>
+                    <a href="templates.html">Templates</a>
+                    <a href="account.html" class="active">Account</a>
+                    <a href="#" id="logout-btn">Logout</a>
+                </div>
+                <div class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>Account & Subscription</h1>
+            <p>Manage your account details and subscription</p>
+        </div>
+    </section>
+
+    <section class="account-section">
+        <div class="container">
+            <div class="account-tabs">
+                <button class="tab-btn active neumorphic-btn-secondary" data-tab="subscription">Subscription</button>
+                <button class="tab-btn neumorphic-btn-secondary" data-tab="profile">Profile</button>
+                <button class="tab-btn neumorphic-btn-secondary" data-tab="password">Password</button>
+                <button class="tab-btn neumorphic-btn-secondary" data-tab="billing">Billing History</button>
+            </div>
+            
+            <div class="tab-content">
+                <!-- Subscription Tab -->
+                <div id="subscription-tab" class="tab-pane active">
+                    <div class="subscription-card">
+                        <div class="subscription-header">
+                            <h2>Your Subscription</h2>
+                            <div id="subscription-status" class="subscription-status">Loading...</div>
+                        </div>
+                        
+                        <div id="subscription-details" class="subscription-details">
+                            <p>Loading subscription details...</p>
+                        </div>
+                        
+                        <div class="subscription-actions">
+                            <button id="upgrade-btn" class="neumorphic-btn" style="display: none;">Upgrade Now</button>
+                            <button id="cancel-subscription-btn" class="neumorphic-btn-outline" style="display: none;">Cancel Subscription</button>
+                            <button id="resume-subscription-btn" class="neumorphic-btn" style="display: none;">Resume Subscription</button>
+                            <button id="update-payment-btn" class="neumorphic-btn-outline" style="display: none;">Update Payment Method</button>
+                        </div>
+                    </div>
+                    
+                    <div class="subscription-features">
+                        <h3>Premium Features</h3>
+                        <ul class="features-list">
+                            <li><i class="fas fa-check"></i> Unlimited proposals</li>
+                            <li><i class="fas fa-check"></i> All wedding templates</li>
+                            <li><i class="fas fa-check"></i> Custom branding</li>
+                            <li><i class="fas fa-check"></i> Digital signatures</li>
+                            <li><i class="fas fa-check"></i> Client acceptance tracking</li>
+                            <li><i class="fas fa-check"></i> Advanced analytics</li>
+                            <li><i class="fas fa-check"></i> Priority support</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Profile Tab -->
+                <div id="profile-tab" class="tab-pane">
+                    <h2>Profile Information</h2>
+                    <form id="profile-form" class="account-form">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" placeholder="Your full name">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="Your email address">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="company">Company Name</label>
+                            <input type="text" id="company" name="company" placeholder="Your company name">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" placeholder="Your phone number">
+                        </div>
+                        
+                        <button type="submit" class="neumorphic-btn">Save Changes</button>
+                    </form>
+                </div>
+                
+                <!-- Password Tab -->
+                <div id="password-tab" class="tab-pane">
+                    <h2>Change Password</h2>
+                    <form id="password-form" class="account-form">
+                        <div class="form-group">
+                            <label for="current-password">Current Password</label>
+                            <input type="password" id="current-password" name="current-password" placeholder="Enter your current password">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="new-password">New Password</label>
+                            <input type="password" id="new-password" name="new-password" placeholder="Enter your new password">
+                            <p class="form-hint">Password must be at least 8 characters long</p>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="confirm-password">Confirm New Password</label>
+                            <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your new password">
+                        </div>
+                        
+                        <button type="submit" class="neumorphic-btn">Update Password</button>
+                    </form>
+                </div>
+                
+                <!-- Billing History Tab -->
+                <div id="billing-tab" class="tab-pane">
+                    <h2>Billing History</h2>
+                    <div id="billing-history" class="billing-history">
+                        <p>Loading billing history...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-links">
+                    <h3>ProposalMate Wedding</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="features.html">Features</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Templates</h3>
+                    <ul>
+                        <li><a href="templates.html#photography">Photography</a></li>
+                        <li><a href="templates.html#planning">Planning</a></li>
+                        <li><a href="templates.html#venue">Venue</a></li>
+                        <li><a href="templates.html#catering">Catering</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Wedding Proposal Guide</a></li>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">FAQs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 ProposalMate Wedding. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/api.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/subscription.js"></script>
+    <script>
+        // Tab functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabPanes = document.querySelectorAll('.tab-pane');
+            
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const tabId = this.getAttribute('data-tab');
+                    
+                    // Remove active class from all buttons and panes
+                    tabBtns.forEach(btn => btn.classList.remove('active'));
+                    tabPanes.forEach(pane => pane.classList.remove('active'));
+                    
+                    // Add active class to current button and pane
+                    this.classList.add('active');
+                    document.getElementById(`${tabId}-tab`).classList.add('active');
+                });
+            });
+            
+            // Profile form handling
+            const profileForm = document.getElementById('profile-form');
+            if (profileForm) {
+                // Load user data
+                const token = localStorage.getItem('token');
+                if (token) {
+                    fetch('/api/v1/auth/me', {
+                        headers: {
+                            'Authorization': `Bearer ${token}`
+                        }
+                    })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.success && data.data) {
+                            document.getElementById('name').value = data.data.name || '';
+                            document.getElementById('email').value = data.data.email || '';
+                            document.getElementById('company').value = data.data.company || '';
+                            document.getElementById('phone').value = data.data.phone || '';
+                        }
+                    })
+                    .catch(err => console.error('Error loading user data:', err));
+                }
+                
+                // Handle form submission
+                profileForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const name = document.getElementById('name').value;
+                    const email = document.getElementById('email').value;
+                    const company = document.getElementById('company').value;
+                    const phone = document.getElementById('phone').value;
+                    
+                    fetch('/api/v1/auth/updatedetails', {
+                        method: 'PUT',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${token}`
+                        },
+                        body: JSON.stringify({
+                            name,
+                            email,
+                            company,
+                            phone
+                        })
+                    })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.success) {
+                            alert('Profile updated successfully');
+                        } else {
+                            throw new Error(data.error || 'Failed to update profile');
+                        }
+                    })
+                    .catch(err => {
+                        console.error('Error updating profile:', err);
+                        alert('Failed to update profile. Please try again.');
+                    });
+                });
+            }
+            
+            // Password form handling
+            const passwordForm = document.getElementById('password-form');
+            if (passwordForm) {
+                passwordForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const currentPassword = document.getElementById('current-password').value;
+                    const newPassword = document.getElementById('new-password').value;
+                    const confirmPassword = document.getElementById('confirm-password').value;
+                    
+                    if (newPassword !== confirmPassword) {
+                        alert('New passwords do not match');
+                        return;
+                    }
+                    
+                    if (newPassword.length < 8) {
+                        alert('Password must be at least 8 characters long');
+                        return;
+                    }
+                    
+                    const token = localStorage.getItem('token');
+                    if (token) {
+                        fetch('/api/v1/auth/updatepassword', {
+                            method: 'PUT',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'Authorization': `Bearer ${token}`
+                            },
+                            body: JSON.stringify({
+                                currentPassword,
+                                newPassword
+                            })
+                        })
+                        .then(res => res.json())
+                        .then(data => {
+                            if (data.success) {
+                                alert('Password updated successfully');
+                                passwordForm.reset();
+                            } else {
+                                throw new Error(data.error || 'Failed to update password');
+                            }
+                        })
+                        .catch(err => {
+                            console.error('Error updating password:', err);
+                            alert('Failed to update password. Please check your current password and try again.');
+                        });
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
