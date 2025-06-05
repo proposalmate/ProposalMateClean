@@ -1,0 +1,27 @@
+# Node modules
+node_modules/
+
+# Logs
+logs/
+*.log
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Environment files
+.env
+
+# Package-lock files
+package-lock.json
+
+# Deployment files
+*.yml
+*.yaml
+
+# Ignore system files
+AppData/
+appdata/
+*.jtx
+*.db
+secrets.txt

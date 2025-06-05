@@ -1,0 +1,61 @@
+/* Mobile menu toggle button fix */
+.mobile-menu-toggle {
+  display: block;
+  font-size: 1.5rem;
+  cursor: pointer !important; /* Force pointer cursor */
+  padding: 8px;
+  z-index: 1001;
+  transition: all 0.3s ease;
+}
+
+/* Ensure the hamburger icon is visible */
+.mobile-menu-toggle i {
+  color: var(--text);
+}
+
+/* Add hover effect for better UX */
+.mobile-menu-toggle:hover {
+  transform: scale(1.1);
+}
+
+/* Active state for the toggle */
+.mobile-menu-toggle.active {
+  color: var(--primary);
+}
+
+/* Ensure mobile menu has proper styling */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -300px;
+  width: 300px;
+  height: 100vh;
+  background-color: white;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  transition: right 0.3s ease;
+  padding: var(--spacing-lg);
+  overflow-y: auto;
+}
+
+.mobile-menu.active {
+  right: 0;
+}
+
+.mobile-menu-close {
+  text-align: right;
+  font-size: 1.5rem;
+  margin-bottom: var(--spacing-lg);
+  cursor: pointer;
+}
+
+.mobile-menu-links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.mobile-menu-links a {
+  padding: var(--spacing-md) 0;
+  border-bottom: 1px solid var(--border);
+}

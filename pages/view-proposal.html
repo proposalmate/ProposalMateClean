@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Proposal - ProposalMate</title>
+    <link rel="stylesheet" href="../css/master.css">
+    <link rel="stylesheet" href="../css/mobile-menu-fix.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <a href="../index.html" class="logo">ProposalMate</a>
+            </div>
+            
+            <div class="sidebar-menu">
+                <a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                <a href="proposals.html" class="active"><i class="fas fa-file-alt"></i> My Proposals</a>
+                <a href="create-proposal.html"><i class="fas fa-plus-circle"></i> Create New Proposal</a>
+                <a href="clients.html"><i class="fas fa-users"></i> Clients</a>
+                <a href="settings.html"><i class="fas fa-cog"></i> Account Settings</a>
+                <a href="subscription.html"><i class="fas fa-credit-card"></i> Subscription</a>
+                <a href="../index.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="top-bar">
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+                
+                <div class="user-info">
+                    <a href="#" id="user-menu">
+                        <span class="user-name">John Smith</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <div class="user-dropdown">
+                        <a href="settings.html">Settings</a>
+                        <a href="../index.html">Logout</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="dashboard-content" id="main-content">
+                <div class="content-header">
+                    <a href="proposals.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Proposals</a>
+                    <div class="proposal-actions">
+                        <button class="ghost-btn" id="download-pdf"><i class="fas fa-download"></i> Download PDF</button>
+                        <button class="ghost-btn" id="share-proposal"><i class="fas fa-share-alt"></i> Share</button>
+                        <a href="edit-proposal.html" class="ghost-btn"><i class="fas fa-edit"></i> Edit</a>
+                    </div>
+                </div>
+                
+                <div class="proposal-view">
+                    <div class="proposal-header">
+                        <h1 id="proposal-title">Website Redesign for ABC Company</h1>
+                        <div class="proposal-meta">
+                            <div class="meta-item">
+                                <span class="meta-label">Client:</span>
+                                <span class="meta-value" id="client-name">Emma Johnson</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Created:</span>
+                                <span class="meta-value" id="created-date">April 5, 2025</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Status:</span>
+                                <span class="status-badge viewed" id="proposal-status">Viewed</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Expires:</span>
+                                <span class="meta-value" id="expiry-date">May 5, 2025</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="proposal-body card">
+                        <div class="proposal-section">
+                            <h2>Introduction</h2>
+                            <div id="proposal-intro">
+                                <p>Thank you for considering our services for your website redesign project. At ABC Design Studio, we specialize in creating modern, user-friendly websites that help businesses achieve their online goals. With over 10 years of experience in the industry, we have the expertise to deliver a website that will impress your visitors and drive results.</p>
+                                <p>After our initial consultation, we understand that you're looking for a complete overhaul of your current website to improve user experience, modernize the design, and optimize for conversions. This proposal outlines our recommended approach, services, and pricing for your project.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="proposal-section">
+                            <h2>Scope of Work</h2>
+                            <div id="proposal-scope">
+                                <p>Our website redesign package for ABC Company includes:</p>
+                                <ul>
+                                    <li>Complete website redesign with modern, responsive design</li>
+                                    <li>User experience (UX) analysis and implementation</li>
+                                    <li>Content migration from existing website</li>
+                                    <li>Search engine optimization (SEO) setup</li>
+                                    <li>Integration with your existing CRM and email marketing tools</li>
+                                    <li>Custom contact forms and lead generation features</li>
+                                    <li>Training session for your team on website management</li>
+                                    <li>30 days of post-launch support</li>
+                                </ul>
+                                <p>The project will be completed in three phases:</p>
+                                <ol>
+                                    <li>Discovery and Planning (2 weeks)</li>
+                                    <li>Design and Development (4 weeks)</li>
+                                    <li>Testing and Launch (2 weeks)</li>
+                                </ol>
+                            </div>
+                        </div>
+                        
+                        <div class="proposal-section">
+                            <h2>Services & Pricing</h2>
+                            <div class="services-table">
+                                <div class="service-row header">
+                                    <div class="service-name">Service</div>
+                                    <div class="service-description">Description</div>
+                                    <div class="service-price">Price</div>
+                                </div>
+                                
+                                <div class="service-row">
+                                    <div class="service-name">UX Research & Strategy</div>
+                                    <div class="service-description">User research, sitemap creation, and wireframing</div>
+                                    <div class="service-price">£500.00</div>
+                                </div>
+                                
+                                <div class="service-row">
+                                    <div class="service-name">Website Design</div>
+                                    <div class="service-description">Custom design for all pages based on your brand guidelines</div>
+                                    <div class="service-price">£800.00</div>
+                                </div>
+                                
+                                <div class="service-row">
+                                    <div class="service-name">Development & Integration</div>
+                                    <div class="service-description">Front-end and back-end development with CRM integration</div>
+                                    <div class="service-price">£1,000.00</div>
+                                </div>
+                                
+                                <div class="service-row">
+                                    <div class="service-name">SEO Setup</div>
+                                    <div class="service-description">On-page SEO optimization and technical SEO implementation</div>
+                                    <div class="service-price">£200.00</div>
+                                </div>
+                                
+                                <div class="service-row total">
+                                    <div class="service-name">Total</div>
+                                    <div class="service-description"></div>
+                                    <div class="service-price" id="total-price">£2,500.00</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="proposal-section">
+                            <h2>Terms & Conditions</h2>
+                            <div id="proposal-terms">
+                                <h3>Payment Schedule</h3>
+                                <p>We require a 50% deposit (£1,250.00) to begin work, with the remaining balance due upon project completion.</p>
+                                
+                                <h3>Timeline</h3>
+                                <p>The estimated timeline for this project is 8 weeks from the start date. The actual timeline may vary based on client feedback and revision cycles.</p>
+                                
+                                <h3>Revisions</h3>
+                                <p>This proposal includes up to two rounds of revisions for each deliverable. Additional revisions will be billed at our hourly rate of £75/hour.</p>
+                                
+                                <h3>Cancellation</h3>
+                                <p>If the project is cancelled after work has begun, payment will be due for all work completed up to the cancellation date.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="proposal-section">
+                            <h2>Next Steps</h2>
+                            <p>To accept this proposal and begin work on your website redesign project:</p>
+                            <ol>
+                                <li>Click the "Accept Proposal" button below</li>
+                                <li>Sign the contract that will be sent to your email</li>
+                                <li>Submit the 50% deposit payment</li>
+                                <li>Schedule the kickoff meeting with our team</li>
+                            </ol>
+                            
+                            <div class="acceptance-section">
+                                <p>This proposal is valid until <span id="valid-until">May 5, 2025</span>.</p>
+                                <div class="acceptance-buttons">
+                                    <button class="elevated-btn" id="accept-proposal">Accept Proposal</button>
+                                    <button class="ghost-btn-danger" id="decline-proposal">Decline</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Share Modal -->
+    <div class="modal" id="share-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Share Proposal</h2>
+                <button class="close-modal"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="share-email">Email Address</label>
+                    <input type="email" id="share-email" placeholder="client@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="share-message">Message (Optional)</label>
+                    <textarea id="share-message" rows="4" placeholder="Add a personal message..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Share Link</label>
+                    <div class="copy-link-group">
+                        <input type="text" id="share-link" value="https://proposalmate.com/p/abc123" readonly>
+                        <button class="ghost-btn" id="copy-link">Copy</button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="ghost-btn" id="cancel-share">Cancel</button>
+                <button class="elevated-btn" id="send-email">Send Email</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="../js/api.js"></script>
+    <script src="../js/navigation.js"></script>
+    <script src="../js/view-proposal.js"></script>
+</body>
+</html>

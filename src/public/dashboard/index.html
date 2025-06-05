@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProposalMate Dashboard</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/dashboard.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1>ProposalMate</h1>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="active"><a href="/dashboard"><i class="fas fa-home"></i> Dashboard</a></li>
+                    <li><a href="/dashboard/proposals"><i class="fas fa-file-alt"></i> Proposals</a></li>
+                    <li><a href="/dashboard/subscription"><i class="fas fa-credit-card"></i> Subscription</a></li>
+                    <li><a href="/dashboard/profile"><i class="fas fa-user"></i> Profile</a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="/api/v1/auth/logout" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </aside>
+        
+        <main class="main-content">
+            <header class="content-header">
+                <div class="user-welcome">
+                    <h2>Welcome, <span id="user-name">User</span>!</h2>
+                    <p>Here's an overview of your ProposalMate account</p>
+                </div>
+                <div class="user-menu">
+                    <div class="user-avatar">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <div class="user-dropdown">
+                        <a href="/dashboard/profile">Profile</a>
+                        <a href="/api/v1/auth/logout">Logout</a>
+                    </div>
+                </div>
+            </header>
+            
+            <div class="dashboard-overview">
+                <div class="stats-card">
+                    <div class="stats-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <div class="stats-info">
+                        <h3>Total Proposals</h3>
+                        <p id="total-proposals">0</p>
+                    </div>
+                </div>
+                
+                <div class="stats-card">
+                    <div class="stats-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="stats-info">
+                        <h3>Accepted Proposals</h3>
+                        <p id="accepted-proposals">0</p>
+                    </div>
+                </div>
+                
+                <div class="stats-card">
+                    <div class="stats-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="stats-info">
+                        <h3>Pending Proposals</h3>
+                        <p id="pending-proposals">0</p>
+                    </div>
+                </div>
+                
+                <div class="stats-card">
+                    <div class="stats-icon">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <div class="stats-info">
+                        <h3>Subscription</h3>
+                        <p id="subscription-status">Active</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="dashboard-sections">
+                <section class="recent-proposals">
+                    <div class="section-header">
+                        <h3>Recent Proposals</h3>
+                        <a href="/dashboard/proposals" class="view-all">View All</a>
+                    </div>
+                    <div class="proposal-list" id="recent-proposals-list">
+                        <!-- Proposals will be loaded here -->
+                        <div class="empty-state">
+                            <i class="fas fa-file-alt"></i>
+                            <p>No proposals yet. Create your first proposal!</p>
+                            <a href="/dashboard/proposals" class="btn btn-primary">Create Proposal</a>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="quick-actions">
+                    <div class="section-header">
+                        <h3>Quick Actions</h3>
+                    </div>
+                    <div class="action-buttons">
+                        <a href="/dashboard/proposals" class="action-btn">
+                            <i class="fas fa-plus-circle"></i>
+                            <span>New Proposal</span>
+                        </a>
+                        <a href="/dashboard/subscription" class="action-btn">
+                            <i class="fas fa-credit-card"></i>
+                            <span>Manage Subscription</span>
+                        </a>
+                        <a href="/dashboard/profile" class="action-btn">
+                            <i class="fas fa-user-edit"></i>
+                            <span>Edit Profile</span>
+                        </a>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="/js/dashboard.js"></script>
+</body>
+</html>

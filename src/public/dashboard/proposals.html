@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposals - ProposalMate Dashboard</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/dashboard.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1>ProposalMate</h1>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="/dashboard"><i class="fas fa-home"></i> Dashboard</a></li>
+                    <li class="active"><a href="/dashboard/proposals"><i class="fas fa-file-alt"></i> Proposals</a></li>
+                    <li><a href="/dashboard/subscription"><i class="fas fa-credit-card"></i> Subscription</a></li>
+                    <li><a href="/dashboard/profile"><i class="fas fa-user"></i> Profile</a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="/api/v1/auth/logout" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </aside>
+        
+        <main class="main-content">
+            <header class="content-header">
+                <div class="user-welcome">
+                    <h2>Proposals</h2>
+                    <p>Create, manage, and download your proposals</p>
+                </div>
+                <div class="user-actions">
+                    <button id="create-proposal-btn" class="btn btn-primary"><i class="fas fa-plus"></i> Create New Proposal</button>
+                </div>
+            </header>
+            
+            <div class="proposals-container">
+                <div class="proposals-filters">
+                    <div class="search-box">
+                        <input type="text" id="proposal-search" placeholder="Search proposals...">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="filter-options">
+                        <select id="status-filter">
+                            <option value="all">All Status</option>
+                            <option value="draft">Draft</option>
+                            <option value="sent">Sent</option>
+                            <option value="viewed">Viewed</option>
+                            <option value="accepted">Accepted</option>
+                            <option value="rejected">Rejected</option>
+                        </select>
+                        <select id="date-filter">
+                            <option value="newest">Newest First</option>
+                            <option value="oldest">Oldest First</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="proposals-list" id="proposals-list">
+                    <!-- Proposals will be loaded here -->
+                    <div class="empty-state">
+                        <i class="fas fa-file-alt"></i>
+                        <p>No proposals found. Create your first proposal!</p>
+                        <button id="empty-create-btn" class="btn btn-primary">Create Proposal</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Proposal Creation/Edit Modal -->
+            <div class="modal" id="proposal-modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 id="modal-title">Create New Proposal</h3>
+                        <button class="close-modal"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="proposal-form">
+                            <input type="hidden" id="proposal-id">
+                            
+                            <div class="form-section">
+                                <h4>Basic Information</h4>
+                                <div class="form-group">
+                                    <label for="proposal-title">Proposal Title</label>
+                                    <input type="text" id="proposal-title" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-section">
+                                <h4>Client Information</h4>
+                                <div class="form-group">
+                                    <label for="client-name">Client Name</label>
+                                    <input type="text" id="client-name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="client-email">Client Email</label>
+                                    <input type="email" id="client-email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="client-company">Client Company</label>
+                                    <input type="text" id="client-company">
+                                </div>
+                                <div class="form-group">
+                                    <label for="client-phone">Client Phone</label>
+                                    <input type="text" id="client-phone">
+                                </div>
+                            </div>
+                            
+                            <div class="form-section">
+                                <h4>Project Details</h4>
+                                <div class="form-group">
+                                    <label for="project-description">Project Description</label>
+                                    <textarea id="project-description" rows="4" required></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="project-scope">Scope of Work</label>
+                                    <textarea id="project-scope" rows="3"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>Deliverables</label>
+                                    <div id="deliverables-container">
+                                        <div class="deliverable-item">
+                                            <input type="text" class="deliverable-input" placeholder="Enter deliverable">
+                                            <button type="button" class="remove-deliverable"><i class="fas fa-times"></i></button>
+                                        </div>
+                                    </div>
+                                    <button type="button" id="add-deliverable" class="btn btn-secondary"><i class="fas fa-plus"></i> Add Deliverable</button>
+                                </div>
+                                <div class="form-group">
+                                    <label>Timeline</label>
+                                    <div class="date-inputs">
+                                        <div>
+                                            <label for="start-date">Start Date</label>
+                                            <input type="date" id="start-date">
+                                        </div>
+                                        <div>
+                                            <label for="end-date">End Date</label>
+                                            <input type="date" id="end-date">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-section">
+                                <h4>Pricing</h4>
+                                <div class="form-group">
+                                    <label for="pricing-currency">Currency</label>
+                                    <select id="pricing-currency">
+                                        <option value="GBP">GBP (£)</option>
+                                        <option value="USD">USD ($)</option>
+                                        <option value="EUR">EUR (€)</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="pricing-total">Total Price</label>
+                                    <input type="number" id="pricing-total" min="0" step="0.01" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Price Breakdown</label>
+                                    <div id="pricing-breakdown-container">
+                                        <div class="pricing-item">
+                                            <input type="text" class="item-name" placeholder="Item name">
+                                            <input type="text" class="item-description" placeholder="Description">
+                                            <input type="number" class="item-quantity" min="1" value="1" placeholder="Qty">
+                                            <input type="number" class="item-price" min="0" step="0.01" placeholder="Unit price">
+                                            <span class="item-total">£0.00</span>
+                                            <button type="button" class="remove-item"><i class="fas fa-times"></i></button>
+                                        </div>
+                                    </div>
+                                    <button type="button" id="add-pricing-item" class="btn btn-secondary"><i class="fas fa-plus"></i> Add Item</button>
+                                </div>
+                                <div class="form-group">
+                                    <label for="payment-terms">Payment Terms</label>
+                                    <textarea id="payment-terms" rows="2"></textarea>
+                                </div>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="button" id="save-draft" class="btn btn-secondary">Save as Draft</button>
+                                <button type="submit" class="btn btn-primary">Save Proposal</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Proposal View Modal -->
+            <div class="modal" id="view-proposal-modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 id="view-modal-title">Proposal Details</h3>
+                        <button class="close-modal"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="proposal-details" id="proposal-details">
+                            <!-- Proposal details will be loaded here -->
+                        </div>
+                        <div class="proposal-actions">
+                            <button id="edit-proposal" class="btn btn-secondary"><i class="fas fa-edit"></i> Edit</button>
+                            <button id="download-pdf" class="btn btn-primary"><i class="fas fa-file-pdf"></i> Download PDF</button>
+                            <button id="download-docx" class="btn btn-primary"><i class="fas fa-file-word"></i> Download DOCX</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="/js/proposals.js"></script>
+</body>
+</html>

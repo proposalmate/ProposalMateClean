@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProposalMate - jQuery Hamburger Menu Test</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        /* Header and navigation */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 100;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #4a90e2;
+            text-decoration: none;
+        }
+        
+        .logo-accent {
+            color: #333;
+            font-weight: 400;
+            margin-left: 5px;
+        }
+        
+        .nav-links {
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            margin-left: 30px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: #4a90e2;
+        }
+        
+        .auth-buttons {
+            display: flex;
+            margin-left: 30px;
+        }
+        
+        .ghost-btn {
+            padding: 8px 20px;
+            border: 2px solid #4a90e2;
+            border-radius: 4px;
+            color: #4a90e2;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .ghost-btn:hover {
+            background-color: #4a90e2;
+            color: #fff;
+        }
+        
+        .elevated-btn {
+            padding: 10px 20px;
+            background-color: #4a90e2;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            text-decoration: none;
+            margin-left: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .elevated-btn:hover {
+            background-color: #3a7bc8;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        /* Hamburger menu button */
+        .hamburger-menu {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: #333;
+            cursor: pointer !important;
+            padding: 10px;
+            z-index: 200;
+        }
+        
+        /* Main content */
+        .content {
+            padding: 40px 20px;
+        }
+        
+        .content h1 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .content p {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .test-section {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .test-section h2 {
+            margin-bottom: 15px;
+        }
+        
+        .test-results {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f0f0f0;
+            border-radius: 4px;
+            font-family: monospace;
+            height: 200px;
+            overflow-y: auto;
+        }
+        
+        .test-pass {
+            color: #2E7D32;
+        }
+        
+        .test-fail {
+            color: #C62828;
+        }
+        
+        .test-info {
+            color: #0277BD;
+        }
+        
+        .viewport-info {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            background-color: rgba(0,0,0,0.7);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            z-index: 1000;
+        }
+        
+        /* Media queries */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hamburger-menu {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">ProposalMate<span class="logo-accent">Wedding</span></a>
+                
+                <div class="nav-links">
+                    <a href="#">Home</a>
+                    <a href="#">Features</a>
+                    <a href="#">Pricing</a>
+                    <a href="#">About</a>
+                    <div class="auth-buttons">
+                        <a href="#" class="ghost-btn">Log In</a>
+                        <a href="#" class="elevated-btn">Sign Up</a>
+                    </div>
+                </div>
+                
+                <button class="hamburger-menu" aria-label="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        <div class="container">
+            <div class="content">
+                <h1>jQuery Hamburger Menu Test</h1>
+                <p>This page tests the jQuery-based hamburger menu implementation.</p>
+                
+                <div class="test-section">
+                    <h2>Interactive Test</h2>
+                    <p>Click the hamburger button (☰) in the top-right corner to open the mobile menu.</p>
+                    <p>The button should have a pointer cursor and the menu should slide in from the right.</p>
+                    
+                    <div class="test-results" id="test-results">
+                        <div class="test-info">Test log will appear here...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <div class="viewport-info" id="viewport-info">
+        Viewport: <span id="viewport-width">0</span>px × <span id="viewport-height">0</span>px
+    </div>
+    
+    <script>
+        // Log test results
+        function logResult(status, message) {
+            const resultElement = document.createElement('div');
+            resultElement.className = `test-${status.toLowerCase()}`;
+            resultElement.textContent = `[${status.toUpperCase()}] ${message}`;
+            document.getElementById('test-results').appendChild(resultElement);
+            document.getElementById('test-results').scrollTop = document.getElementById('test-results').scrollHeight;
+            console.log(`[${status.toUpperCase()}] ${message}`);
+        }
+        
+        // Update viewport size info
+        function updateViewportInfo() {
+            document.getElementById('viewport-width').textContent = window.innerWidth;
+            document.getElementById('viewport-height').textContent = window.innerHeight;
+        }
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            updateViewportInfo();
+            window.addEventListener('resize', updateViewportInfo);
+            
+            logResult('info', 'Test page loaded');
+            logResult('info', `Current viewport: ${window.innerWidth}px × ${window.innerHeight}px`);
+            
+            // Check hamburger button styling
+            const hamburgerBtn = document.querySelector('.hamburger-menu');
+            if (hamburgerBtn) {
+                const hamburgerStyle = window.getComputedStyle(hamburgerBtn);
+                if (hamburgerStyle.cursor === 'pointer') {
+                    logResult('pass', 'Hamburger button has pointer cursor');
+                } else {
+                    logResult('fail', `Hamburger button has ${hamburgerStyle.cursor} cursor instead of pointer`);
+                }
+                
+                // Check if hamburger is visible on mobile
+                if (window.innerWidth <= 768) {
+                    if (hamburgerStyle.display !== 'none') {
+                        logResult('pass', 'Hamburger button is visible on mobile viewport');
+                    } else {
+                        logResult('fail', 'Hamburger button is not visible on mobile viewport');
+                    }
+                } else {
+                    logResult('info', 'Resize window to <= 768px width to test mobile view');
+                }
+            } else {
+                logResult('fail', 'Hamburger button not found');
+            }
+        });
+    </script>
+    
+    <!-- Include jQuery hamburger menu script -->
+    <script src="/Frontend/js/jquery-hamburger.js"></script>
+</body>
+</html>

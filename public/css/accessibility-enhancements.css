@@ -1,0 +1,106 @@
+/* Accessibility Enhancements for Visual Overhaul */
+
+/* Ensure proper focus states for keyboard navigation */
+.elevated-btn:focus,
+.ghost-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(248, 213, 220, 0.4),
+              6px 6px 12px rgba(0,0,0,0.08),
+              -6px -6px 12px #ffffff;
+  position: relative;
+  z-index: 2;
+}
+
+/* Improve color contrast for better readability */
+.elevated-btn {
+  color: #222222; /* Darker text for better contrast on light backgrounds */
+  font-weight: 600; /* Slightly bolder text for better visibility */
+}
+
+/* Ensure proper hover states are visible for all users */
+.elevated-btn:hover,
+.ghost-btn:hover {
+  transform: scale(0.98); /* Subtle movement to indicate interactivity */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Add ARIA support for screen readers */
+[role="button"].elevated-btn,
+[role="button"].ghost-btn {
+  cursor: pointer;
+}
+
+/* Ensure disabled states are properly indicated */
+.elevated-btn:disabled,
+.ghost-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Cross-browser compatibility fixes */
+.elevated-btn,
+.ghost-btn {
+  -webkit-appearance: none; /* Fix for iOS Safari */
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
+}
+
+/* Ensure proper touch target sizes for mobile */
+@media (max-width: 768px) {
+  .elevated-btn,
+  .ghost-btn {
+    min-height: 44px; /* Minimum touch target size */
+    min-width: 44px;
+    padding: 12px 20px;
+    margin: 4px; /* Ensure proper spacing between touch targets */
+  }
+}
+
+/* High contrast mode support */
+@media (forced-colors: active) {
+  .elevated-btn,
+  .ghost-btn {
+    border: 2px solid currentColor;
+  }
+}
+
+/* Skip navigation for keyboard users */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #F8D5DC;
+  color: #333;
+  padding: 8px;
+  z-index: 100;
+  transition: top 0.3s ease;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* Form label associations */
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+/* Ensure proper form validation messages */
+.error-message {
+  color: #d32f2f;
+  font-size: 0.875rem;
+  margin-top: 4px;
+}
+
+/* Ensure proper focus for form elements */
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: #F8D5DC;
+  box-shadow: 0 0 0 3px rgba(248, 213, 220, 0.3);
+}

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProposalMate - Navigation Test</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Segoe+UI:wght@300;400;500;700&family=Helvetica+Neue:wght@300;400;500;700&display=swap">
+    <link rel="stylesheet" href="/css/master.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .test-controls {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            z-index: 1000;
+        }
+        .test-controls button {
+            margin: 5px;
+        }
+        .viewport-size {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body class="wedding-theme">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">ProposalMate<span class="logo-accent">Wedding</span></div>
+                <div class="nav-links">
+                    <a href="/">Home</a>
+                    <a href="/pages/features.html">Features</a>
+                    <a href="/pages/pricing.html">Pricing</a>
+                    <a href="/pages/about.html">About</a>
+                    <div class="auth-buttons">
+                        <a href="/pages/login.html" class="ghost-btn">Log In</a>
+                        <a href="/pages/signup.html" class="elevated-btn">Sign Up</a>
+                    </div>
+                </div>
+                <div class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <section class="hero">
+            <div class="container">
+                <h1>Navigation Test Page</h1>
+                <p>This page is for testing the navigation functionality, especially the hamburger button on mobile.</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <h2>Test Instructions</h2>
+                <p>Use the controls below to test different aspects of the navigation:</p>
+                <ul>
+                    <li>Click the hamburger button to open the mobile menu</li>
+                    <li>Click outside the menu or the X button to close it</li>
+                    <li>Test navigation links in both desktop and mobile views</li>
+                    <li>Resize the browser to see responsive behavior</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <div class="test-controls">
+        <button id="test-hamburger" class="elevated-btn">Test Hamburger Button</button>
+        <button id="test-links" class="elevated-btn">Test Nav Links</button>
+        <button id="toggle-viewport-size" class="ghost-btn">Show Viewport Size</button>
+    </div>
+
+    <div class="viewport-size" style="display: none;">
+        <span id="viewport-width">0</span> x <span id="viewport-height">0</span>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="copyright">
+                <p>&copy; 2025 ProposalMate Wedding. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/api.js"></script>
+    <script src="/js/navigation.js"></script>
+    <script src="/js/navigation-test.js"></script>
+    <script>
+        // Additional test controls
+        document.getElementById('test-hamburger').addEventListener('click', function() {
+            const mobileToggle = document.querySelector('.mobile-menu-toggle');
+            if (mobileToggle) {
+                mobileToggle.click();
+                console.log('Hamburger button clicked programmatically');
+            } else {
+                console.error('Hamburger button not found');
+            }
+        });
+
+        document.getElementById('test-links').addEventListener('click', function() {
+            testNavigationLinks();
+        });
+
+        document.getElementById('toggle-viewport-size').addEventListener('click', function() {
+            const viewportSize = document.querySelector('.viewport-size');
+            if (viewportSize.style.display === 'none') {
+                viewportSize.style.display = 'block';
+                updateViewportSize();
+                window.addEventListener('resize', updateViewportSize);
+            } else {
+                viewportSize.style.display = 'none';
+                window.removeEventListener('resize', updateViewportSize);
+            }
+        });
+
+        function updateViewportSize() {
+            document.getElementById('viewport-width').textContent = window.innerWidth;
+            document.getElementById('viewport-height').textContent = window.innerHeight;
+        }
+    </script>
+</body>
+</html>
