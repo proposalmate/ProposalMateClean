@@ -23,48 +23,28 @@
       <div class="template-card">
         <h2>Wedding Photography</h2>
         <p>Elegant and image-focused layout to impress couples looking for photo magic.</p>
-        <div class="template-actions">
-          <a href="login.html" class="btn btn-secondary">Use Template</a>
-          <button class="btn btn-primary preview-btn" data-demo="photography">Preview</button>
-        </div>
+        <a href="/pages/login.html" class="btn btn-secondary">Use Template</a>
       </div>
 
       <div class="template-card">
         <h2>Wedding Planning</h2>
         <p>Comprehensive planning structure with milestones and detailed timelines.</p>
-        <div class="template-actions">
-          <a href="login.html" class="btn btn-secondary">Use Template</a>
-          <button class="btn btn-primary preview-btn" data-demo="planning">Preview</button>
-        </div>
+        <a href="/pages/login.html" class="btn btn-secondary">Use Template</a>
       </div>
 
       <div class="template-card">
         <h2>Wedding Venue</h2>
         <p>Highlight venue features, packages, and event coordination all in one place.</p>
-        <div class="template-actions">
-          <a href="login.html" class="btn btn-secondary">Use Template</a>
-          <button class="btn btn-primary preview-btn" data-demo="venue">Preview</button>
-        </div>
+        <a href="/pages/login.html" class="btn btn-secondary">Use Template</a>
       </div>
 
       <div class="template-card">
         <h2>Catering & Bar</h2>
         <p>Customizable menu, pricing tiers, and add-on services for culinary proposals.</p>
-        <div class="template-actions">
-          <a href="login.html" class="btn btn-secondary">Use Template</a>
-          <button class="btn btn-primary preview-btn" data-demo="catering">Preview</button>
-        </div>
+        <a href="/pages/login.html" class="btn btn-secondary">Use Template</a>
       </div>
     </section>
   </main>
-
-  <!-- Preview Modal -->
-  <div id="previewModal" class="modal hidden">
-    <div class="modal-content">
-      <span class="close-btn">&times;</span>
-      <iframe id="templatePreview" src="" width="100%" height="600px" style="border: none;"></iframe>
-    </div>
-  </div>
 
   <footer>
     <div class="container">
@@ -73,22 +53,6 @@
   </footer>
 
   <script>
-    const previewModal = document.getElementById("previewModal");
-    const previewIframe = document.getElementById("templatePreview");
-
-    document.querySelectorAll(".preview-btn").forEach(btn => {
-      btn.addEventListener("click", () => {
-        const demo = btn.getAttribute("data-demo");
-        previewIframe.src = `/pages/templates/demo-${demo}.html`;
-        previewModal.classList.remove("hidden");
-      });
-    });
-
-    document.querySelector(".close-btn").addEventListener("click", () => {
-      previewModal.classList.add("hidden");
-      previewIframe.src = "";
-    });
-
     const token = localStorage.getItem("token");
     if (token) {
       document.querySelectorAll(".btn-secondary").forEach(btn => {
@@ -97,45 +61,5 @@
       });
     }
   </script>
-
-  <style>
-    .template-grid {
-      display: grid;
-      gap: 2rem;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    }
-
-    .template-card {
-      background: #fff;
-      padding: 2rem;
-      border-radius: 16px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .template-actions {
-      margin-top: 1rem;
-      display: flex;
-      justify-content: space-between;
-    }
-
-    .modal.hidden {
-      display: none;
-    }
-
-    .modal {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.6);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-    }
-
-    .modal-content {
-      background: #fff;
-      padding: 1rem
+</body>
+</html>
