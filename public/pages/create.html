@@ -1,201 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Proposal - ProposalMate Wedding</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Segoe+UI:wght@300;400;500;700&family=Helvetica+Neue:wght@300;400;500;700&display=swap">
-    <link rel="stylesheet" href="../css/layout.css">
-    <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="../css/wedding-theme.css">
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <!-- SimpleMDE for markdown editing -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
-    <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Create Proposal - ProposalMate Wedding</title>
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/css/layout.css" />
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="stylesheet" href="/css/wedding-theme.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
 </head>
+
 <body class="wedding-theme">
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-    <header class="site-header">
-  <div class="container">
-    <h1 class="proposal-mate-title">Proposal Mate</h1>
-    <nav class="main-nav">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="features.html">Features</a></li>
-        <li><a href="pricing.html">Pricing</a></li>
-        <li><a href="templates.html">Templates</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="login.html">Login</a></li>
-      </ul>
-    </nav>
-    <button class="hamburger mobile-menu-toggle" aria-label="Menu">
-      <span class="hamburger-line"></span>
-      <span class="hamburger-line"></span>
-      <span class="hamburger-line"></span>
-    </button>
-  </div>
-</header>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
-
-    <main id="main-content">
-        <section class="page-header">
-            <div class="container">
-                <h1>Create New Proposal</h1>
-                <p>Craft a beautiful proposal for your wedding client</p>
-            </div>
-        </section>
-
-        <section class="create-proposal-section">
-            <div class="container">
-                <div class="proposal-form-container">
-                    <form id="proposal-form">
-                        <div class="form-group">
-                            <label for="title">Proposal Title</label>
-                            <input type="text" id="title" name="title" placeholder="e.g., Wedding Photography Package for Smith-Johnson Wedding" required>
-                        </div>
-                        
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="client-name">Client Name</label>
-                                <input type="text" id="client-name" name="client-name" placeholder="e.g., Sarah & Michael Smith" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="client-email">Client Email</label>
-                                <input type="email" id="client-email" name="client-email" placeholder="e.g., sarah@example.com" required>
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="template">Template</label>
-                            <select id="template" name="template">
-                                <option value="photography">Wedding Photography</option>
-                                <option value="planning">Wedding Planning</option>
-                                <option value="venue">Wedding Venue</option>
-                                <option value="catering">Wedding Catering</option>
-                                <option value="default">Custom Template</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="content">Proposal Content</label>
-                            <textarea id="content" name="content" rows="15" placeholder="Enter your proposal content here..."></textarea>
-                            <p class="form-hint">Use Markdown formatting for headings, lists, and emphasis.</p>
-                        </div>
-                        
-                        <div class="form-actions">
-                            <button type="button" id="preview-btn" class="ghost-btn">Preview</button>
-                            <button type="submit" class="elevated-btn">Save Proposal</button>
-                        </div>
-                    </form>
-                </div>
-                
-                <div class="proposal-tips">
-                    <h3>Tips for Great Wedding Proposals</h3>
-                    <ul>
-                        <li><i class="fas fa-heart"></i> <strong>Connect emotionally</strong> - Show that you understand the couple's vision for their special day</li>
-                        <li><i class="fas fa-images"></i> <strong>Include visuals</strong> - Add links to your portfolio or past weddings</li>
-                        <li><i class="fas fa-list-ul"></i> <strong>Be specific</strong> - Clearly outline what's included in each package</li>
-                        <li><i class="fas fa-calendar-alt"></i> <strong>Set expectations</strong> - Include timelines and delivery schedules</li>
-                        <li><i class="fas fa-comment-dollar"></i> <strong>Be transparent</strong> - Clearly state pricing and payment terms</li>
-                    </ul>
-                    
-                    <div class="template-preview">
-                        <h4>Template Preview</h4>
-                        <p>Select a template from the dropdown to see a preview of its structure and content.</p>
-                        <div class="template-images">
-                            <img src="../images/templates/photography-template-thumb.jpg" alt="Photography Template" class="active" data-template="photography">
-                            <img src="../images/templates/planning-template-thumb.jpg" alt="Planning Template" data-template="planning">
-                            <img src="../images/templates/venue-template-thumb.jpg" alt="Venue Template" data-template="venue">
-                            <img src="../images/templates/catering-template-thumb.jpg" alt="Catering Template" data-template="catering">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-links">
-                    <h3>ProposalMate Wedding</h3>
-                    <ul>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="features.html">Features</a></li>
-                        <li><a href="pricing.html">Pricing</a></li>
-                    </ul>
-                </div>
-                <div class="footer-links">
-                    <h3>Templates</h3>
-                    <ul>
-                        <li><a href="templates.html#photography">Photography</a></li>
-                        <li><a href="templates.html#planning">Planning</a></li>
-                        <li><a href="templates.html#venue">Venue</a></li>
-                        <li><a href="templates.html#catering">Catering</a></li>
-                    </ul>
-                </div>
-                <div class="footer-links">
-                    <h3>Resources</h3>
-                    <ul>
-                        <li><a href="#">Wedding Proposal Guide</a></li>
-                        <li><a href="#">Help Center</a></li>
-                        <li><a href="#">FAQs</a></li>
-                    </ul>
-                </div>
-                <div class="footer-links">
-                    <h3>Legal</h3>
-                    <ul>
-                        <li><a href="terms.html">Terms of Service</a></li>
-                        <li><a href="privacy.html">Privacy Policy</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2025 ProposalMate Wedding. All rights reserved.</p>
-            </div>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <nav class="top-nav" aria-label="Main navigation">
+        <div class="logo">ProposalMate<span class="logo-accent">Wedding</span></div>
+        <div class="nav-links">
+          <a href="/index.html">Home</a>
+          <a href="/pages/templates.html">Templates</a>
+          <a href="/pages/dashboard.html">Dashboard</a>
+          <a href="#" id="logout-link">Logout</a>
         </div>
-    </footer>
+      </nav>
+    </div>
+  </header>
 
-    <script src="../js/api.js"></script>
-    <script src="../js/main.js"></script>
-    <script src="../js/create-proposal.js"></script>
-    <script>
-        // Initialize SimpleMDE
-        document.addEventListener('DOMContentLoaded', function() {
-            const contentField = document.getElementById('content');
-            if (contentField) {
-                const simplemde = new SimpleMDE({ 
-                    element: contentField,
-                    spellChecker: true,
-                    autosave: {
-                        enabled: true,
-                        uniqueId: "proposalContent",
-                        delay: 1000,
-                    },
-                    placeholder: "Enter your proposal content here...",
-                    toolbar: ["bold", "italic", "heading", "|", "quote", "unordered-list", "ordered-list", "|", "link", "image", "|", "preview", "side-by-side", "fullscreen", "|", "guide"]
-                });
-            }
-            
-            // Template preview images
-            const templateImages = document.querySelectorAll('.template-images img');
-            const templateSelector = document.getElementById('template');
-            
-            if (templateImages.length && templateSelector) {
-                templateSelector.addEventListener('change', function() {
-                    const selectedTemplate = this.value;
-                    
-                    templateImages.forEach(img => {
-                        if (img.dataset.template === selectedTemplate) {
-                            img.classList.add('active');
-                        } else {
-                            img.classList.remove('active');
-                        }
-                    });
-                });
-            }
-        });
-    </script>
+  <!-- Main Content -->
+  <main class="proposal-form-page" id="main-content">
+    <div class="container narrow">
+      <h1>Create a New Proposal</h1>
+      <p class="page-subtext">Choose a wedding template, fill in the details, and send something beautiful.</p>
+
+      <form id="create-proposal-form" class="proposal-form">
+        <div class="form-group">
+          <label for="template">Wedding Template</label>
+          <select id="template" name="template" required>
+            <option value="">Select a template</option>
+            <option value="wedding-photography">Wedding Photography</option>
+            <option value="wedding-planning">Wedding Planning</option>
+            <option value="wedding-venue">Wedding Venue</option>
+            <option value="wedding-catering">Wedding Catering</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="clientName">Client Name</label>
+          <input type="text" id="clientName" name="clientName" placeholder="e.g. Emma & James" required />
+        </div>
+
+        <div class="form-group">
+          <label for="clientEmail">Client Email</label>
+          <input type="email" id="clientEmail" name="clientEmail" placeholder="e.g. emma@example.com" required />
+        </div>
+
+        <div class="form-group">
+          <label for="proposalTitle">Proposal Title</label>
+          <input type="text" id="proposalTitle" name="proposalTitle" placeholder="e.g. Wedding Photography Proposal for 2025" required />
+        </div>
+
+        <div class="form-group">
+          <label for="proposalContent">Proposal Details</label>
+          <textarea id="proposalContent" name="proposalContent" placeholder="Write your proposal here..."></textarea>
+        </div>
+
+        <div class="form-actions">
+          <button type="button" id="preview-template" class="neumorphic-btn-outline"><i class="fas fa-eye"></i> Preview Template</button>
+          <button type="submit" class="neumorphic-btn"><i class="fas fa-paper-plane"></i> Save Proposal</button>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-links">
+          <h3>ProposalMate Wedding</h3>
+          <ul>
+            <li><a href="/pages/about.html">About</a></li>
+            <li><a href="/pages/features.html">Features</a></li>
+            <li><a href="/pages/pricing.html">Pricing</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h3>Templates</h3>
+          <ul>
+            <li><a href="/pages/templates.html#photography">Photography</a></li>
+            <li><a href="/pages/templates.html#planning">Planning</a></li>
+            <li><a href="/pages/templates.html#venue">Venue</a></li>
+            <li><a href="/pages/templates.html#catering">Catering</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h3>Support</h3>
+          <ul>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Proposal Guide</a></li>
+            <li><a href="#">FAQs</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h3>Legal</h3>
+          <ul>
+            <li><a href="/pages/terms.html">Terms</a></li>
+            <li><a href="/pages/privacy.html">Privacy</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="copyright">
+        <p>&copy; 2025 ProposalMate Wedding. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="/js/api.js"></script>
+  <script src="/js/main.js"></script>
+  <script src="/js/create.js"></script>
+  <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+  <script>
+    const simplemde = new SimpleMDE({ element: document.getElementById("proposalContent") });
+  </script>
 </body>
 </html>

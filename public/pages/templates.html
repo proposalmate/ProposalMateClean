@@ -1,171 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Templates - ProposalMate</title>
-    <link rel="stylesheet" href="/css/hockney-inspired.css">
-    <link rel="stylesheet" href="/css/templates.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Templates - ProposalMate Wedding</title>
+
+  <!-- Fonts & Styling -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="/css/layout.css" />
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="stylesheet" href="/css/wedding-theme.css" />
 </head>
-<body>
-    <a href="#main" class="skip-link">Skip to main content</a>
-    
-    <header>
-        <div class="container">
-            <nav>
-                <a href="/index.html" class="logo"><span class="logo-primary">Proposal</span><span class="logo-secondary">Mate</span></a>
-                
-                <ul class="nav-links">
-                    <li><a href="/index.html">HOME</a></li>
-                    <li><a href="/pages/features.html">FEATURES</a></li>
-                    <li><a href="/pages/pricing.html">PRICING</a></li>
-                    <li><a href="/pages/templates.html" class="active">TEMPLATES</a></li>
-                    <li><a href="/pages/login.html" class="btn btn-secondary">Log In</a></li>
-                    <li><a href="/pages/signup.html" class="btn btn-primary">Sign Up</a></li>
-                </ul>
-                
-                <button class="hamburger-menu" aria-label="Toggle menu">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </nav>
+<body class="wedding-theme">
+
+  <main class="container wide">
+    <section class="page-header">
+      <h1>Explore Wedding Proposal Templates</h1>
+      <p class="page-subtext">Beautifully crafted proposals for every wedding service.</p>
+    </section>
+
+    <section class="template-grid">
+      <div class="template-card">
+        <h2>Wedding Photography</h2>
+        <p>Elegant and image-focused layout to impress couples looking for photo magic.</p>
+        <div class="template-actions">
+          <a href="login.html" class="btn btn-secondary">Use Template</a>
+          <button class="btn btn-primary preview-btn" data-demo="photography">Preview</button>
         </div>
-    </header>
-    
-    <main id="main">
-        <section class="templates-header">
-            <div class="container">
-                <h1>Elegant Proposal Templates</h1>
-                <p>Choose from our collection of professionally designed templates to create stunning proposals for your wedding clients.</p>
-            </div>
-        </section>
-        
-        <section class="container">
-            <div id="loading-indicator">Loading templates...</div>
-            
-            <div class="templates-container" id="templates-grid">
-                <!-- Templates will be loaded dynamically via JavaScript -->
-            </div>
-            
-            <!-- Sample Template Preview -->
-            <div class="sample-template">
-                <div class="sample-template-header">
-                    <h2>Wedding Photography Package</h2>
-                    <p>A fully styled sample template for wedding photographers</p>
-                </div>
-                
-                <div class="sample-template-content">
-                    <div class="sample-template-section">
-                        <h3>About Us</h3>
-                        <p>With over 10 years of experience capturing beautiful wedding moments, our team specializes in creating timeless images that tell your unique love story. We blend photojournalistic techniques with artistic direction to ensure every special moment is preserved forever.</p>
-                    </div>
-                    
-                    <div class="sample-template-section">
-                        <h3>Our Packages</h3>
-                        <div class="package-grid">
-                            <div class="package-card">
-                                <h4>Essential Package</h4>
-                                <div class="package-price">£1,500</div>
-                                <ul class="package-features">
-                                    <li>6 hours of coverage</li>
-                                    <li>One photographer</li>
-                                    <li>Online gallery with 300+ edited images</li>
-                                    <li>Engagement session</li>
-                                    <li>Print release</li>
-                                </ul>
-                            </div>
-                            
-                            <div class="package-card">
-                                <h4>Premium Package</h4>
-                                <div class="package-price">£2,500</div>
-                                <ul class="package-features">
-                                    <li>8 hours of coverage</li>
-                                    <li>Two photographers</li>
-                                    <li>Online gallery with 500+ edited images</li>
-                                    <li>Engagement session</li>
-                                    <li>12×12 wedding album (20 pages)</li>
-                                    <li>Print release</li>
-                                </ul>
-                            </div>
-                            
-                            <div class="package-card">
-                                <h4>Luxury Package</h4>
-                                <div class="package-price">£3,500</div>
-                                <ul class="package-features">
-                                    <li>Full day coverage (up to 10 hours)</li>
-                                    <li>Two photographers</li>
-                                    <li>Online gallery with 700+ edited images</li>
-                                    <li>Engagement session</li>
-                                    <li>12×12 premium wedding album (30 pages)</li>
-                                    <li>Two 8×8 parent albums</li>
-                                    <li>Print release</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="sample-template-section">
-                        <h3>Booking Process</h3>
-                        <p>To secure your date, we require a signed contract and a 30% non-refundable retainer. The remaining balance is due 30 days before your wedding date. We accept payments via bank transfer, credit card, or PayPal.</p>
-                    </div>
-                    
-                    <div class="sample-template-section">
-                        <h3>Contact Information</h3>
-                        <p>Email: hello@proposalmate.com<br>
-                        Phone: (800) 456-7890<br>
-                        Website: www.proposalmate.com</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-    
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>ProposalMate</h3>
-                    <ul>
-                        <li><a href="/index.html">Home</a></li>
-                        <li><a href="/pages/features.html">Features</a></li>
-                        <li><a href="/pages/pricing.html">Pricing</a></li>
-                        <li><a href="/pages/templates.html">Templates</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Resources</h3>
-                    <ul>
-                        <li><a href="/pages/help.html">Help Center</a></li>
-                        <li><a href="/pages/faq.html">FAQs</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Legal</h3>
-                    <ul>
-                        <li><a href="/pages/terms.html">Terms of Service</a></li>
-                        <li><a href="/pages/privacy.html">Privacy Policy</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Contact</h3>
-                    <ul>
-                        <li><a href="/pages/contact.html">Contact Us</a></li>
-                        <li><a href="mailto:hello@proposalmate.com">hello@proposalmate.com</a></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="copyright">
-                <p>&copy; 2025 ProposalMate. All rights reserved.</p>
-            </div>
+      </div>
+
+      <div class="template-card">
+        <h2>Wedding Planning</h2>
+        <p>Comprehensive planning structure with milestones and detailed timelines.</p>
+        <div class="template-actions">
+          <a href="login.html" class="btn btn-secondary">Use Template</a>
+          <button class="btn btn-primary preview-btn" data-demo="planning">Preview</button>
         </div>
-    </footer>
-    
-    <script src="/js/api.js"></script>
-    <script src="/js/templates-preview.js"></script>
-    <script src="/js/hamburger-menu.js"></script>
-</body>
-</html>
+      </div>
+
+      <div class="template-card">
+        <h2>Wedding Venue</h2>
+        <p>Highlight venue features, packages, and event coordination all in one place.</p>
+        <div class="template-actions">
+          <a href="login.html" class="btn btn-secondary">Use Template</a>
+          <button class="btn btn-primary preview-btn" data-demo="venue">Preview</button>
+        </div>
+      </div>
+
+      <div class="template-card">
+        <h2>Catering & Bar</h2>
+        <p>Customizable menu, pricing tiers, and add-on services for culinary proposals.</p>
+        <div class="template-actions">
+          <a href="login.html" class="btn btn-secondary">Use Template</a>
+          <button class="btn btn-primary preview-btn" data-demo="catering">Preview</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Preview Modal -->
+  <div id="previewModal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <iframe id="templatePreview" src="" width="100%" height="600px" style="border: none;"></iframe>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p class="footer-copy">&copy; 2025 ProposalMate Wedding. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const previewModal = document.getElementById("previewModal");
+    const previewIframe = document.getElementById("templatePreview");
+
+    document.querySelectorAll(".preview-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const demo = btn.getAttribute("data-demo");
+        previewIframe.src = `/pages/templates/demo-${demo}.html`;
+        previewModal.classList.remove("hidden");
+      });
+    });
+
+    document.querySelector(".close-btn").addEventListener("click", () => {
+      previewModal.classList.add("hidden");
+      previewIframe.src = "";
+    });
+
+    const token = localStorage.getItem("token");
+    if (token) {
+      document.querySelectorAll(".btn-secondary").forEach(btn => {
+        btn.textContent = "Use Template";
+        btn.href = "/pages/create-proposal.html";
+      });
+    }
+  </script>
+
+  <style>
+    .template-grid {
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .template-card {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .template-actions {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .modal.hidden {
+      display: none;
+    }
+
+    .modal {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    .modal-content {
+      background: #fff;
+      padding: 1rem

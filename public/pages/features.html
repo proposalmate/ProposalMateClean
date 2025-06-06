@@ -1,178 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Features - Proposal Mate</title>
-  <link rel="stylesheet" href="../css/master.css">
-  <link rel="stylesheet" href="../css/mobile-menu-fix.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-</head>
-<body>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Features - ProposalMate Wedding</title>
 
-  <header class="site-header">
+  <!-- Fonts & Styling -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="/css/layout.css" />
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="stylesheet" href="/css/wedding-theme.css" />
+</head>
+<body class="wedding-theme">
+
+  <header>
     <div class="container">
-      <h1 class="proposal-mate-title">Proposal Mate</h1>
-      <nav class="main-nav">
-        <ul>
-          <li><a href="../index.html">Home</a></li>
-          <li><a href="features.html">Features</a></li>
-          <li><a href="pricing.html">Pricing</a></li>
-          <li><a href="templates.html">Templates</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="login.html">Log in</a></li>
-        </ul>
+      <nav class="top-nav" aria-label="Main navigation">
+        <div class="logo">ProposalMate<span class="logo-accent">Wedding</span></div>
+        <div class="nav-links">
+          <a href="/index.html">Home</a>
+          <a href="/pages/features.html" class="active">Features</a>
+          <a href="/pages/pricing.html">Pricing</a>
+          <a href="/pages/templates.html">Templates</a>
+          <a href="/pages/login.html">Login</a>
+        </div>
       </nav>
-      <!-- Hamburger button for mobile view -->
-      <button class="hamburger mobile-menu-toggle" aria-label="Menu">
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-      </button>
     </div>
   </header>
 
-
-
+  <main>
     <section class="page-header">
-        <div class="container">
-            <h1>Features</h1>
-            <p>Everything you need to create and manage professional proposals</p>
-        </div>
+      <div class="container">
+        <h1>All-in-One Proposal Builder for Wedding Professionals</h1>
+        <p class="page-subtext">Everything you need to send beautiful, professional wedding proposals that get accepted fast.</p>
+      </div>
     </section>
 
-    <section class="features-detailed">
-        <div class="container">
-            <div class="feature-detailed-item">
-                <div class="feature-detailed-content">
-                    <h2>Create and Send Proposals</h2>
-                    <p>Easily create professional proposals using our intuitive editor. Add your content, customize the layout, and send directly to your clients with just a few clicks.</p>
-                    <ul class="feature-list">
-                        <li>User-friendly proposal editor</li>
-                        <li>Direct sending to client email</li>
-                        <li>PDF export option</li>
-                        <li>Save drafts for later editing</li>
-                    </ul>
-                </div>
-                <div class="feature-detailed-image">
-                    <img src="../assets/feature-create.svg" alt="Create Proposals">
-                </div>
-            </div>
+    <section class="features-list container">
+      <div class="feature-card">
+        <i class="fas fa-heart"></i>
+        <h3>Wedding-Specific Templates</h3>
+        <p>Photographers, planners, venues, florists — we've got tailored templates for every wedding service.</p>
+      </div>
 
-            <div class="feature-detailed-item reverse">
-                <div class="feature-detailed-content">
-                    <h2>Customize Templates</h2>
-                    <p>Choose from a variety of professional templates and customize them to match your brand. Adjust colors, fonts, and layouts to create proposals that stand out.</p>
-                    <ul class="feature-list">
-                        <li>Multiple professional templates</li>
-                        <li>Brand color customization</li>
-                        <li>Font selection options</li>
-                        <li>Layout adjustments</li>
-                    </ul>
-                </div>
-                <div class="feature-detailed-image">
-                    <img src="../assets/feature-customize.svg" alt="Customize Templates">
-                </div>
-            </div>
+      <div class="feature-card">
+        <i class="fas fa-bolt"></i>
+        <h3>Fast & Easy Editing</h3>
+        <p>Update client names, pricing, and details in seconds with our intuitive editor.</p>
+      </div>
 
-            <div class="feature-detailed-item">
-                <div class="feature-detailed-content">
-                    <h2>Track Proposal Status</h2>
-                    <p>Monitor when clients view, accept, or request changes to your proposals. Get real-time notifications and status updates to stay informed.</p>
-                    <ul class="feature-list">
-                        <li>View tracking</li>
-                        <li>Acceptance notifications</li>
-                        <li>Status dashboard</li>
-                        <li>Email alerts</li>
-                    </ul>
-                </div>
-                <div class="feature-detailed-image">
-                    <img src="../assets/feature-track.svg" alt="Track Proposals">
-                </div>
-            </div>
+      <div class="feature-card">
+        <i class="fas fa-mobile-alt"></i>
+        <h3>Mobile Friendly</h3>
+        <p>Send proposals your clients can open and sign from their phone.</p>
+      </div>
 
-            <div class="feature-detailed-item reverse">
-                <div class="feature-detailed-content">
-                    <h2>Manage Client Information</h2>
-                    <p>Keep all your client details organized in one convenient location. Access contact information, proposal history, and client notes whenever you need them.</p>
-                    <ul class="feature-list">
-                        <li>Client contact database</li>
-                        <li>Proposal history tracking</li>
-                        <li>Client notes and details</li>
-                        <li>Quick access to client information</li>
-                    </ul>
-                </div>
-                <div class="feature-detailed-image">
-                    <img src="../assets/feature-manage.svg" alt="Manage Clients">
-                </div>
-            </div>
+      <div class="feature-card">
+        <i class="fas fa-pen-fancy"></i>
+        <h3>Digital Signatures</h3>
+        <p>Clients can sign on any device — no printing, no scanning, no delays.</p>
+      </div>
 
-            <div class="feature-detailed-item">
-                <div class="feature-detailed-content">
-                    <h2>Integration with Payment Systems</h2>
-                    <p>Seamlessly integrate with payment systems like Stripe to make it easy for clients to accept proposals and make payments.</p>
-                    <ul class="feature-list">
-                        <li>Stripe integration</li>
-                        <li>Payment tracking</li>
-                        <li>Invoice generation</li>
-                        <li>Payment reminders</li>
-                    </ul>
-                </div>
-                <div class="feature-detailed-image">
-                    <img src="../assets/feature-payment.svg" alt="Payment Integration">
-                </div>
-            </div>
-        </div>
+      <div class="feature-card">
+        <i class="fas fa-chart-line"></i>
+        <h3>Tracking & Analytics</h3>
+        <p>Get alerts when your proposals are opened, viewed, or accepted.</p>
+      </div>
+
+      <div class="feature-card">
+        <i class="fas fa-brush"></i>
+        <h3>Custom Branding</h3>
+        <p>Add your logo, colours, and company feel to every proposal you send.</p>
+      </div>
+
+      <div class="feature-card">
+        <i class="fas fa-shield-check"></i>
+        <h3>Secure & Reliable</h3>
+        <p>Powered by Stripe & hosted securely — your data and your clients are safe.</p>
+      </div>
     </section>
 
-    <section class="cta-section">
-        <div class="container">
-            <h2>Ready to Create Professional Proposals?</h2>
-            <p>Join thousands of professionals who trust ProposalMate for their proposal needs.</p>
-            <a href="signup.html" class="btn btn-primary">Start Your Free Trial Today</a>
-        </div>
+    <section class="cta-banner">
+      <div class="container">
+        <h2>Send Your First Proposal in Minutes</h2>
+        <p>Create beautiful wedding proposals that win clients and save time.</p>
+        <a href="/pages/signup.html" class="btn btn-primary">Get Started</a>
+      </div>
     </section>
+  </main>
 
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-links">
-                    <h3>ProposalMate</h3>
-                    <ul>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="features.html">Features</a></li>
-                        <li><a href="pricing.html">Pricing</a></li>
-                    </ul>
-                </div>
-                <div class="footer-links">
-                    <h3>Resources</h3>
-                    <ul>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Help Center</a></li>
-                        <li><a href="#">FAQs</a></li>
-                    </ul>
-                </div>
-                <div class="footer-links">
-                    <h3>Legal</h3>
-                    <ul>
-                        <li><a href="terms.html">Terms of Service</a></li>
-                        <li><a href="privacy.html">Privacy Policy</a></li>
-                    </ul>
-                </div>
-                <div class="footer-links">
-                    <h3>Contact</h3>
-                    <ul>
-                        <li><a href="contact.html">Contact Us</a></li>
-                        <li><a href="#">Support</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2025 ProposalMate. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
+  <footer>
+    <div class="container">
+      <p class="footer-copy">&copy; 2025 ProposalMate Wedding. All rights reserved.</p>
+    </div>
+  </footer>
 
-    <script src="../js/main.js"></script>
+  <script src="/js/main.js"></script>
 </body>
 </html>
