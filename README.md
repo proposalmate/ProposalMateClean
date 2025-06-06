@@ -53,4 +53,4 @@ ProposalMate is a complete SaaS application that allows users to create, manage,
 ```bash
 git clone https://github.com/yourusername/proposalmate.git
 cd proposalmate
-// trigger redeploy
+// trigger redeploy"<!-- trigger rebuild -->" 
