@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Edit Proposal - ProposalMate Wedding</title>
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/css/layout.css"/>
+  <link rel="stylesheet" href="/css/styles.css"/>
+  <link rel="stylesheet" href="/css/wedding-theme.css"/>
+</head>
+<body class="wedding-theme">
+  <header>
+    <div class="container">
+      <nav class="top-nav" aria-label="Main navigation">
+        <div class="logo">ProposalMate<span class="logo-accent">Wedding</span></div>
+        <div class="nav-links">
+          <a href="/pages/dashboard.html">Dashboard</a>
+          <a href="/pages/templates.html">Templates</a>
+          <a href="/pages/account.html">Account</a>
+          <a href="#" id="logout-link"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container narrow" role="main">
+    <section class="form-section">
+      <h1>Edit Proposal</h1>
+      <p class="page-subtext">Make changes to your saved wedding proposal.</p>
+
+      <form id="editProposalForm" class="form-styled">
+        <div class="form-group">
+          <label for="proposalTitle">Proposal Title</label>
+          <input type="text" id="proposalTitle" name="title" required />
+        </div>
+
+        <div class="form-group">
+          <label for="clientName">Client Name</label>
+          <input type="text" id="clientName" name="clientName" required />
+        </div>
+
+        <div class="form-group">
+          <label for="proposalContent">Proposal Content</label>
+          <textarea id="proposalContent" name="content" rows="10" required></textarea>
+        </div>
+
+        <div id="editProposalMessage" class="form-message" style="display: none;"></div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Save Changes</button>
+          <a href="/pages/dashboard.html" class="ghost-btn btn-sm">Cancel</a>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-links">
+          <h3>ProposalMate Wedding</h3>
+          <ul>
+            <li><a href="/pages/about.html">About Us</a></li>
+            <li><a href="/pages/features.html">Features</a></li>
+            <li><a href="/pages/pricing.html">Pricing</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h3>Templates</h3>
+          <ul>
+            <li><a href="/pages/templates.html#photography">Photography</a></li>
+            <li><a href="/pages/templates.html#planning">Planning</a></li>
+            <li><a href="/pages/templates.html#venue">Venue</a></li>
+            <li><a href="/pages/templates.html#catering">Catering</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h3>Support</h3>
+          <ul>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="/pages/contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h3>Legal</h3>
+          <ul>
+            <li><a href="/pages/terms.html">Terms of Service</a></li>
+            <li><a href="/pages/privacy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2025 ProposalMate Wedding. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="/js/main.js"></script>
+  <script>
+    const token = localStorage.getItem("token");
+    if (!token) {
+      window.location.href = "login.html";
+    }
+
+    const proposalId = new URLSearchParams(window.location.search).get("id");
+    if (!proposalId) {
+      document.getElementById("editProposalMessage").textContent = "Missing proposal ID.";
+      document.getElementById("editProposalMessage").style.display = "block";
+    } else {
+      fetch(`/api/proposals/${proposalId}`, {
+        headers: { Authorization: `Bearer ${token}` }
+      })
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById("proposalTitle").value = data.title || "";
+        document.getElementById("clientName").value = data.clientName || "";
+        document.getElementById("proposalContent").value = data.content || "";
+      })
+      .catch(() => {
+        document.getElementById("editProposalMessage").textContent = "Failed to load proposal.";
+        document.getElementById("editProposalMessage").style.display = "block";
+      });
+    }
+
+    document.getElementById("editProposalForm").addEventListener("submit", async function (e) {
+      e.preventDefault();
+      const title = document.getElementById("proposalTitle").value;
+      const clientName = document.getElementById("clientName").value;
+      const content = document.getElementById("proposalContent").value;
+
+      try {
+        const res = await fetch(`/api/proposals/${proposalId}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`
+          },
+          body: JSON.stringify({ title, clientName, content })
+        });
+
+        const msg = document.getElementById("editProposalMessage");
+        msg.style.display = "block";
+        msg.className = res.ok ? "form-message success" : "form-message error";
+        msg.textContent = res.ok ? "Proposal updated successfully!" : "Update failed.";
+      } catch (err) {
+        const msg = document.getElementById("editProposalMessage");
+        msg.style.display = "block";
+        msg.className = "form-message error";
+        msg.textContent = "An error occurred while saving.";
+      }
+    });
+  </script>
+</body>
+</html>

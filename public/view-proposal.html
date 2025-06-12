@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>View Proposal - ProposalMate Wedding</title>
+
+  <!-- Fonts & Styling -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/layout.css" />
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="stylesheet" href="/css/wedding-theme.css" />
+</head>
+
+<body class="wedding-theme">
+  <main class="proposal-container container">
+    <section class="proposal-header">
+      <h1 id="proposal-title">Wedding Proposal</h1>
+      <p id="proposal-date">Date: <span>June 6, 2025</span></p>
+      <p id="client-name">Client: <span>Jessica & Michael</span></p>
+    </section>
+
+    <section class="proposal-content">
+      <div class="proposal-section">
+        <h2>Services Included</h2>
+        <ul id="proposal-services">
+          <li>Full-day wedding photography (12 hours)</li>
+          <li>Second photographer included</li>
+          <li>Pre-wedding shoot</li>
+          <li>Online gallery & 50 printed images</li>
+        </ul>
+      </div>
+
+      <div class="proposal-section">
+        <h2>Pricing</h2>
+        <p id="proposal-total" class="price-highlight">Total: £1,750</p>
+      </div>
+
+      <div class="proposal-section">
+        <h2>Additional Notes</h2>
+        <p id="proposal-notes">
+          Travel included within 50 miles. All images delivered within 4 weeks. Let's capture your perfect day.
+        </p>
+      </div>
+
+      <div class="proposal-section">
+        <h2>Next Steps</h2>
+        <ol>
+          <li>Review and accept this proposal</li>
+          <li>Pay deposit via Stripe (you'll be redirected)</li>
+          <li>We'll schedule your welcome call!</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="proposal-actions">
+      <button id="accept-proposal" class="btn btn-primary">Accept Proposal</button>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p class="footer-copy">&copy; 2025 ProposalMate Wedding. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Simulated accept action
+    document.getElementById('accept-proposal').addEventListener('click', () => {
+      alert("Thank you! We'll follow up shortly to confirm and collect your deposit.");
+      // Future: redirect to Stripe payment link or call backend API
+    });
+
+    // Optional: Load actual proposal data from backend
+    // fetch('/api/proposals/:id')...
+  </script>
+
+  <style>
+    .proposal-container {
+      background: #fff;
+      border-radius: 16px;
+      padding: 2rem;
+      margin-top: 2rem;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    }
+
+    .proposal-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .proposal-header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+    }
+
+    .proposal-section {
+      margin-bottom: 2rem;
+    }
+
+    .proposal-section h2 {
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 0.25rem;
+    }
+
+    .price-highlight {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #a16207;
+    }
+
+    .proposal-actions {
+      text-align: center;
+      margin-top: 2rem;
+    }
+  </style>
+</body>
+</html>

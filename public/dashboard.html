@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard - ProposalMate Wedding</title>
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/css/layout.css"/>
+  <link rel="stylesheet" href="/css/styles.css"/>
+  <link rel="stylesheet" href="/css/wedding-theme.css"/>
+</head>
+<body class="wedding-theme">
+  <header>
+    <div class="container">
+      <nav class="top-nav" aria-label="Main navigation">
+        <div class="logo">ProposalMate<span class="logo-accent">Wedding</span></div>
+        <div class="nav-links">
+          <span class="user-name" id="dashboard-username">Welcome back!</span>
+          <a href="#" id="logout-link"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container wide" role="main">
+    <section class="dashboard-intro">
+      <h1>Dashboard</h1>
+      <p class="page-subtext">Overview of your wedding proposals and subscription status.</p>
+    </section>
+
+    <section class="dashboard-stats">
+      <div class="stat-card"><div class="stat-number" id="stat-total">0</div><div class="stat-label">Total Proposals</div></div>
+      <div class="stat-card"><div class="stat-number" id="stat-sent">0</div><div class="stat-label">Sent</div></div>
+      <div class="stat-card"><div class="stat-number" id="stat-viewed">0</div><div class="stat-label">Viewed</div></div>
+      <div class="stat-card"><div class="stat-number" id="stat-accepted">0</div><div class="stat-label">Accepted</div></div>
+    </section>
+
+    <section class="subscription-status">
+      <h2>Your Subscription</h2>
+      <div class="subscription-card" id="subscription-section">
+        <div class="subscription-info">
+          <p><strong>Plan:</strong> <span id="sub-plan">Checking...</span></p>
+          <p><strong>Status:</strong> <span id="sub-status">Loading...</span></p>
+          <p><strong>Next billing date:</strong> <span id="sub-next-date">...</span></p>
+        </div>
+        <div class="subscription-actions">
+          <button id="manage-subscription" class="ghost-btn btn-sm">Manage Subscription</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="recent-proposals">
+      <div class="section-header">
+        <h2>Recent Proposals</h2>
+        <a href="/pages/proposals.html" class="view-all">View All</a>
+      </div>
+      <div class="proposal-list" id="proposal-list">
+        <p>No proposals yet. Create your first one below!</p>
+      </div>
+    </section>
+
+    <section class="quick-actions">
+      <h2>Quick Actions</h2>
+      <div class="action-buttons">
+        <a href="/pages/create-proposal.html" class="btn btn-primary"><i class="fas fa-plus-circle"></i> Create New Proposal</a>
+        <a href="/pages/clients.html" class="btn btn-secondary"><i class="fas fa-user-plus"></i> Add New Client</a>
+      </div>
+    </section>
+  </main>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/dashboard.js"></script>
+  <script src="/js/main.js"></script>
+</body>
+</html>

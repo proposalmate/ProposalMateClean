@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign Up - ProposalMate Wedding</title>
+  <link rel="stylesheet" href="../css/layout.css" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body class="login-page">
+
+  <div class="login-container">
+    <h1 class="login-logo">Proposal<span>Mate Wedding</span></h1>
+
+    <form id="signupForm" class="login-form">
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" required placeholder="e.g. Sophie Bennett">
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" required placeholder="e.g. hello@yourweddingbiz.com">
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required placeholder="At least 8 characters">
+      </div>
+
+      <div class="form-group">
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" required placeholder="Retype your password">
+      </div>
+
+      <div id="signupError" class="form-error" style="display: none;"></div>
+
+      <button type="submit" class="btn btn-primary">Create Account</button>
+
+      <div class="form-links">
+        <a href="login.html">Already have an account? Log In</a>
+      </div>
+    </form>
+  </div>
+
+  <script src="../js/auth.js"></script>
+  <script>
+    document.ge
