@@ -5,7 +5,6 @@ const morgan = require('morgan');
 const cors = require('cors');
 
 const connectDB = require('./src/config/db');
-const config = require('./src/config/config');
 const ErrorResponse = require('./src/utils/errorResponse');
 
 // Load env vars
@@ -38,7 +37,7 @@ if (process.env.NODE_ENV === 'production') {
   });
 }
 
-// Set proper MIME types for JavaScript files
+// Set proper MIME types for JS
 app.use((req, res, next) => {
   if (req.url.endsWith('.js')) {
     res.setHeader('Content-Type', 'application/javascript');
@@ -46,60 +45,42 @@ app.use((req, res, next) => {
   next();
 });
 
-// Serve static files from public directory
+// Prevent caching (to ensure updates are always served)
+app.use((req, res, next) => {
+  res.set('Cache-Control', 'no-store');
+  next();
+});
+
+// Serve static files
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/pages', express.static(path.join(__dirname, 'public/pages')));
-// Serve index.html for the root
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
-});
 
-// Define explicit routes for known pages instead of using a dynamic parameter
-// This avoids potential path-to-regexp parsing errors
-app.get('/about', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'pages', 'about.html'));
-});
+// Explicit page routes
+const pageRoutes = [
+  'about', 'features', 'pricing', 'login', 'signup',
+  'templates', 'account', 'dashboard', 'clients',
+  'create', 'create-proposal', 'edit-proposal',
+  'proposals', 'reset-password', 'settings', 'subscription',
+  'test', 'view-proposal'
+];
 
-app.get('/features', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'pages', 'features.html'));
-});
-
-app.get('/pricing', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'pages', 'pricing.html'));
-});
-
-app.get('/login', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'pages', 'login.html'));
-});
-
-app.get('/signup', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'pages', 'signup.html'));
-});
-
-app.get('/templates', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'pages', 'templates.html'));
-});
-
-app.get('/account', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'pages', 'account.html'));
-});
-
-app.get('/dashboard', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'pages', 'dashboard.html'));
+pageRoutes.forEach(page => {
+  app.get(`/${page}`, (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'pages', `${page}.html`));
+  });
 });
 
 // API routes
 app.use('/api/v1/auth', require('./src/routes/auth'));
 app.use('/api/v1/proposals', require('./src/routes/proposals'));
 
-// 404 handler for API routes
+// 404 handler for unknown API routes
 app.use('/api', (req, res) => {
   res.status(404).json({ success: false, error: 'API route not found' });
 });
 
-// Serve index.html for any other routes (SPA fallback)
+// Fallback for unknown frontend routes
 app.get('*', (req, res, next) => {
-  // Skip API routes and static files
   if (!req.url.startsWith('/api') && !req.url.match(/\.(js|css|png|jpg|jpeg|gif|svg|ico)$/)) {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
   } else {
@@ -107,7 +88,7 @@ app.get('*', (req, res, next) => {
   }
 });
 
-// Global error handler middleware
+// Error handler
 app.use((err, req, res, next) => {
   console.error('Server error:', err);
   const error = new ErrorResponse(err.message || 'Server Error', err.statusCode || 500);
@@ -117,6 +98,5 @@ app.use((err, req, res, next) => {
 // Start server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`);
-  console.log(`Static files served from: ${path.join(__dirname, 'public')}`);
+  console.log(`Server running on port ${PORT}`);
 });
