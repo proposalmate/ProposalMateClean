@@ -37,7 +37,7 @@ if (process.env.NODE_ENV === 'production') {
   });
 }
 
-// Set proper MIME types for JS
+// Set proper MIME types for JavaScript files
 app.use((req, res, next) => {
   if (req.url.endsWith('.js')) {
     res.setHeader('Content-Type', 'application/javascript');
@@ -45,17 +45,17 @@ app.use((req, res, next) => {
   next();
 });
 
-// Prevent caching (to ensure updates are always served)
+// Prevent browser caching of static files
 app.use((req, res, next) => {
   res.set('Cache-Control', 'no-store');
   next();
 });
 
-// Serve static files
+// Serve static files from public directories
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/pages', express.static(path.join(__dirname, 'public/pages')));
 
-// Explicit page routes
+// Direct HTML routes
 const pageRoutes = [
   'about', 'features', 'pricing', 'login', 'signup',
   'templates', 'account', 'dashboard', 'clients',
@@ -79,16 +79,21 @@ app.use('/api', (req, res) => {
   res.status(404).json({ success: false, error: 'API route not found' });
 });
 
-// Fallback for unknown frontend routes
+// ✅ FINAL wildcard route — safely placed after all others
 app.get('*', (req, res, next) => {
-  if (!req.url.startsWith('/api') && !req.url.match(/\.(js|css|png|jpg|jpeg|gif|svg|ico)$/)) {
+  if (
+    req.method === 'GET' &&
+    !req.url.startsWith('/api') &&
+    !req.url.startsWith('/pages') &&
+    !req.url.match(/\.(js|css|png|jpg|jpeg|gif|svg|ico|html)$/)
+  ) {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
   } else {
     next();
   }
 });
 
-// Error handler
+// Global error handler middleware
 app.use((err, req, res, next) => {
   console.error('Server error:', err);
   const error = new ErrorResponse(err.message || 'Server Error', err.statusCode || 500);
@@ -98,5 +103,6 @@ app.use((err, req, res, next) => {
 // Start server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+  console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`);
+  console.log(`Static files served from: ${path.join(__dirname, 'public')}`);
 });
